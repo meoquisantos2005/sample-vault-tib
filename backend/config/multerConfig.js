@@ -1,21 +1,4 @@
-/**
-*    Project     : Sample Vault
-*    Author      : Tecnologías Informáticas B - Facultad de Ingeniería - UNMdP
-*    License     : http://www.gnu.org/licenses/gpl.txt  GNU GPL 3.0
-*    Date        : Marzo 2026
-*/
-
-/**
- * Importación del módulo multer
- * Multer es un middleware de Node.js diseñado para Express, 
- * esencial para manejar la carga de archivos (imágenes, documentos, etc.)
- * enviados en formato multipart/form-data. Simplifica la gestión 
- * de archivos al permitir configuraciones de almacenamiento en disco 
- * o memoria, filtrado de tipos y límites de tamaño, añadiendo un objeto
- * file o files al objeto request.
- */
 const multer = require('multer');
-// const path = require('path');
 
 // Configuración de almacenamiento de Multer
 const storage = multer.diskStorage({
@@ -31,17 +14,15 @@ const storage = multer.diskStorage({
 // Filtro para aceptar solo formatos de audio compatibles con HTML5
 const fileFilter = (req, file, cb) => {
     const allowedTypes = ['audio/mpeg', 'audio/wav', 'audio/ogg', 'audio/flac'];
-    if (allowedTypes.includes(file.mimetype))
-    {
+
+    if (allowedTypes.includes(file.mimetype)) {
         cb(null, true);
-    }
-    else
-    {
+    } else {
         cb(new Error('Invalid file type. Only MP3, WAV, OGG and FLAC are allowed.'), false);
     }
 };
 
 const upload = multer({ storage, fileFilter });
 
-// 'audioFile' es el nombre del campo en el formulario
+// 'audioFile' es el nombre del campo en el FormData del frontend
 module.exports = upload.single('audioFile');
