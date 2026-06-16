@@ -27,6 +27,23 @@
     </div>
 </div>
 
+<!-- MODAL DE ERROR W3.CSS -->
+<div id="errorModal" class="w3-modal">
+  <div class="w3-modal-content w3-card-4 w3-animate-top" style="max-width: 500px;">
+
+    <header class="w3-container w3-red">
+      <span onclick="document.getElementById('errorModal').style.display='none'"
+      class="w3-button w3-display-topright">&times;</span>
+      <h3>Error</h3>
+    </header>
+
+    <div class="w3-container w3-padding">
+      <p id="modalMessage">Error</p>
+    </div>
+
+  </div>
+</div>
+
 <script src="../js/tests/testUtils.js"></script>
 <script src="../js/tests/authTests.js"></script>
 <script src="../js/tests/sampleTests.js"></script>
