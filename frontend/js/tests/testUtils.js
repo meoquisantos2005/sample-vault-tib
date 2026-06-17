@@ -40,8 +40,3 @@
         btn.className = "w3-button w3-block w3-section w3-round w3-green";
     }
 };
-
-function showModal(message) {
-    document.getElementById('modalMessage').textContent = message;
-    document.getElementById('errorModal').style.display = 'block';
-}
