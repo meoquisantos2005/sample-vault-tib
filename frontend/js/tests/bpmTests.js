@@ -40,6 +40,7 @@ testUtils.createTestButton("Test BPM (validación 120)", async (btn) => {
         showModal(data.message || "Error en BPM");
     }
 });
+
 function showModal(message) {
     document.getElementById('modalMessage').textContent = message;
     document.getElementById('errorModal').style.display = 'block';
