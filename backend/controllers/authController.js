@@ -13,7 +13,7 @@ const userRepo = require('../repositories/userRepo'); // Importamos el repositor
  * Deserialización moderna: "Del objeto que devuelve este require, buscá la propiedad que se 
  * llame exactamente SECRET_KEY y creá una constante con ese mismo nombre y valor".
  *  */ 
-const { SECRET_KEY } = require('../middleware/authMiddleware'); 
+const { SECRET_KEY } = require('../middleware/authMiddleware');
 
 class AuthController 
 {
