@@ -22,22 +22,7 @@ class SampleController
             }
 
             const { display_name, category, bpm } = req.body;
-
-            // VALIDACIÓN BPM (NUEVA)
-            const bpmNumber = Number(bpm);
-
-            if (isNaN(bpmNumber) || bpmNumber < 20 || bpmNumber > 300)  {
-                // si hay archivo, lo limpiamos para no dejar basura
-                if (req.file) {
-                    fileHelper.deleteFile(`/uploads/${req.file.filename}`);
-                }
-
-                return res.status(400).json({
-                    ok: false,
-                    message: "BPM inválido. Ingrese un valor numérico correcto"
-                });
-            }
-                        
+            
             if (!display_name || !category) {
                 // Si faltan datos, eliminamos el archivo físico para no dejar basura (Storage Efficiency)
                 fileHelper.deleteFile(`/uploads/${req.file.filename}`);
@@ -54,7 +39,7 @@ class SampleController
                 filename,
                 display_name,
                 category,
-                bpm: bpmNumber,
+                bpm: parseInt(bpm) || 0,
                 file_path: filePath
             });
 

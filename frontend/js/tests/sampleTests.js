@@ -59,14 +59,5 @@ testUtils.createTestButton("Test Subir Sample (Simulado)", async (btn) => {
 
     const data = await response.json();
     testUtils.log(data);
-
-    // 👇 SI HAY ERROR → MODAL
-    if (!response.ok) {
-        showModal(data.message);
-        btn.className = "w3-button w3-block w3-section w3-round w3-red";
-        return;
-    }
-
-    // 👇 SI SALE BIEN → VERDE
-    testUtils.setSuccess(btn);
+    if (response.ok) testUtils.setSuccess(btn);
 });
