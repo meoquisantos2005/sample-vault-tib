@@ -1,28 +1,55 @@
 const multer = require('multer');
 
-// Configuración de almacenamiento de Multer
+// =========================
+// CONSTANTES
+// =========================
+const UPLOAD_DIR = 'uploads';
+
+const ALLOWED_AUDIO_TYPES = [
+    'audio/mpeg',
+    'audio/wav',
+    'audio/ogg',
+    'audio/flac'
+];
+
+const INVALID_AUDIO_ERROR = 'INVALID_AUDIO';
+
+// =========================
+// STORAGE CONFIG
+// =========================
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, 'uploads/'); // Carpeta donde se guardarán físicamente
+        cb(null, UPLOAD_DIR);
     },
+
     filename: (req, file, cb) => {
-        // Renombramos el archivo: timestamp + nombre original para que sea único
-        cb(null, Date.now() + '-' + file.originalname);
+        const uniqueName = `${Date.now()}-${file.originalname}`;
+        cb(null, uniqueName);
     }
 });
 
-// Filtro para aceptar solo formatos de audio compatibles con HTML5
+// =========================
+// FILE FILTER (VALIDACIÓN)
+// =========================
 const fileFilter = (req, file, cb) => {
-    const allowedTypes = ['audio/mpeg', 'audio/wav', 'audio/ogg', 'audio/flac'];
+    const isValidType = ALLOWED_AUDIO_TYPES.includes(file.mimetype);
 
-    if (allowedTypes.includes(file.mimetype)) {
+    if (isValidType) {
         cb(null, true);
     } else {
-        cb(new Error('Invalid file type. Only MP3, WAV, OGG and FLAC are allowed.'), false);
+        cb(new Error(INVALID_AUDIO_ERROR), false);
     }
 };
 
-const upload = multer({ storage, fileFilter });
+// =========================
+// MULTER INSTANCE
+// =========================
+const upload = multer({
+    storage,
+    fileFilter
+});
 
-// 'audioFile' es el nombre del campo en el FormData del frontend
+// =========================
+// EXPORT
+// =========================
 module.exports = upload.single('audioFile');
