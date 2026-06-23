@@ -9,37 +9,43 @@ document.addEventListener("DOMContentLoaded", () => {
         const username = document.getElementById("usernameInput").value;
         const password = document.getElementById("passwordInput").value;
 
-        const consoleDiv = document.getElementById("api-console");
+        if (!username || !password) {
+            alert("Completa todos los campos");
+            return;
+        }
 
         try {
             const response = await fetch('/api/auth/login', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: {
+                    'Content-Type': 'application/json'
+                },
                 body: JSON.stringify({ username, password })
             });
 
             const data = await response.json();
 
-            // 🔴 ERROR LOGIN
+            // ❌ LOGIN ERROR
             if (!response.ok) {
-
-                consoleDiv.innerText = "❌ Usuario o contraseña incorrecta";
-
+                alert(data.message || "Usuario o contraseña incorrecta");
                 return;
             }
 
-            // 🟢 LOGIN OK
+            // ✔ LOGIN OK
             localStorage.setItem("test_token", data.token);
+            localStorage.setItem("role", data.role);
 
-            // habilitar subir sample
-            document.getElementById("mimeTestBtn").disabled = false;
+            // 🔥 REDIRECCIÓN SEGÚN ROL
+            if (data.role === "admin") {
+                window.location.href = "/html/admin-dashboard.html";
+            } else {
+                window.location.href = "/html/producer-dashboard.html";
+            }
 
-            consoleDiv.innerText = "✔ Login correcto";
-            
         } catch (err) {
-
-            consoleDiv.innerText = "Error de conexión";
-
+            console.error(err);
+            alert("Error de conexión con el servidor");
         }
     });
+
 });

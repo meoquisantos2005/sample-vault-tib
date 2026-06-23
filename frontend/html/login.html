@@ -2,91 +2,34 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>SampleVault - Test Suite API</title>
+    <title>Login - SampleVault</title>
     <link rel="stylesheet" href="../css/w3.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="icon" type="image/png" href="../img/favicon-bw.png">
 </head>
+
 <body class="w3-dark-grey">
 
 <div class="w3-container w3-padding-32">
-    <h1 class="w3-text-yellow"><b>Laboratorio de Pruebas API</b></h1>
-    <p>Consola de ejecución de métodos (SampleVault Marzo 2026)</p>
 
-    <div class="w3-row-padding">
+    <h2 class="w3-text-yellow">Login</h2>
 
-        <!-- IZQUIERDA: TESTS -->
-        <div id="test-container" class="w3-col l6 m12 s12">
+    <input id="usernameInput" class="w3-input w3-margin-bottom" placeholder="Usuario">
+    <input id="passwordInput" type="password" class="w3-input w3-margin-bottom" placeholder="Contraseña">
 
-            <h3 class="w3-text-white">Login</h3>
+    <button id="loginBtn" class="w3-button w3-green">
+        Iniciar sesión
+    </button>
 
-            <input id="usernameInput" class="w3-input w3-margin-bottom" placeholder="Usuario">
-            <input id="passwordInput" type="password" class="w3-input w3-margin-bottom" placeholder="Contraseña">
+    <!-- ✔ LINK REGISTRO -->
+    <p class="w3-text-white w3-margin-top">
+        ¿No tenés cuenta?
+        <a href="/html/register.html">
+            Registrarte
+        </a>
+    </p>
 
-            <button id="loginBtn" class="w3-button w3-green w3-margin-bottom">
-                Login
-            </button>
-
-            <hr>
-
-            <h3 class="w3-text-white">Ejecutar Pruebas</h3>
-
-            <!-- INPUT REAL -->
-            <input type="file" id="audioInput" class="w3-margin-top" />
-
-            <!-- BOTÓN SUBIDA -->
-            <button id="mimeTestBtn" class="w3-button w3-red w3-margin-top" disabled>
-                Subir sample
-            </button>
-
-        </div>
-
-        <!-- DERECHA: RESULTADOS -->
-        <div class="w3-col l6 m12 s12">
-
-            <h3 class="w3-text-white">Resultado de la API</h3>
-
-            <div id="api-console"
-                 class="w3-code w3-black w3-border-yellow w3-border w3-padding"
-                 style="min-height: 400px; overflow-y: auto;">
-                Esperando ejecución...
-            </div>
-
-        </div>
-
-    </div>
 </div>
 
-<!-- MODAL -->
-<div id="errorModal" class="w3-modal">
-  <div class="w3-modal-content w3-card-4 w3-animate-top" style="max-width: 500px;">
-
-    <header class="w3-container w3-red">
-      <span onclick="document.getElementById('errorModal').style.display='none'"
-      class="w3-button w3-display-topright">&times;</span>
-
-      <h3 id="modalTitle">El archivo no es un audio válido</h3>
-    </header>
-
-    <div class="w3-container w3-padding">
-      <p id="modalMessage">Esperando...</p>
-    </div>
-
-  </div>
-</div>
-
-<!-- SCRIPTS -->
- <!--
-<script src="../js/tests/testUtils.js"></script>
-<script src="../js/tests/authTests.js"></script>
-<script src="../js/tests/sampleTests.js"></script>
-<script src="../js/tests/adminTests.js"></script>
-<script src="../js/tests/guia-ejercicios.js"></script>
--->
-
-<!-- TU TEST -->
-<script src="../js/tests/mimeTest.js"></script>
-<script src="../js/tests/loginTest.js"></script>
+<script src="../js/tests/login.js"></script>
 
 </body>
 </html>
