@@ -7,49 +7,26 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="icon" type="image/png" href="../img/favicon.png">
 </head>
-
 <body class="w3-display-container" style="height:100vh;">
-
     <div class="w3-display-middle w3-mobile" style="width:400px;">
-
-        <div class="w3-card-4 w3-padding-large w3-round-large w3-dark-grey">
-
+        <div class="w3-card-4 vault-card w3-padding-large w3-round-large">
             <h2 class="w3-center w3-text-yellow"><b>CREAR CUENTA</b></h2>
-
-            <p class="w3-center w3-text-white">
-                Registro de usuario SampleVault
-            </p>
-
-            <!-- COMPATIBLE CON TU register.js -->
-            <label class="w3-text-white">Usuario</label>
-            <input id="usernameInput"
-                   class="w3-input w3-border w3-round w3-margin-bottom"
-                   type="text"
-                   placeholder="Usuario">
-
-            <label class="w3-text-white">Contraseña</label>
-            <input id="passwordInput"
-                   class="w3-input w3-border w3-round w3-margin-bottom"
-                   type="password"
-                   placeholder="Contraseña">
-
-            <button id="registerBtn"
-                    class="w3-button w3-yellow w3-block w3-round-large">
-                REGISTRARSE
-            </button>
-
-            <p class="w3-small w3-center w3-text-white w3-margin-top">
-                ¿Ya tenés cuenta?
-                <a href="/html/login.html" class="w3-text-yellow">
-                    Iniciar sesión
-                </a>
-            </p>
-
+            <form id="registerForm">
+                <label>Nombre de Usuario</label>
+                <input class="w3-input w3-border w3-round w3-transparent w3-text-white" type="text" id="username" required>
+                <br>
+                <label>Contraseña</label>
+                <input class="w3-input w3-border w3-round w3-transparent w3-text-white" type="password" id="password" required>
+                <br>
+                <button type="submit" class="w3-button w3-yellow w3-block w3-round-large"><b>REGISTRARSE</b></button>
+            </form>
+            <p class="w3-small w3-center">¿Ya tienes cuenta? <a href="/login" class="w3-text-yellow">Inicia Sesión</a></p>
         </div>
     </div>
 
-    <!-- TU SCRIPT ORIGINAL -->
-    <script src="../js/tests/register.js"></script>
-
+    <script src="../js/services/apiService.js"></script>
+    <script src="../js/components/uiHandlers.js"></script>
+    <script src="../js/utils/authHelper.js"></script>
+    <script src="../js/frontControllers/authFrontController.js"></script>
 </body>
 </html>
