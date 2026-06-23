@@ -24,12 +24,20 @@ class AuthController
         {
             const { username, password } = req.body;
 
-            // 1. Validación de presencia
             if (!username || !password) {
-                return res.status(400).json({ message: "Usuario y contraseña son requeridos." });
+                return res.status(400).json({
+                    message: "Usuario y contraseña son requeridos."
+                });
             }
 
-            const hashedPassword = await bcrypt.hash(password, 10);            
+            // Validación de longitud mínima
+            if (password.length < 6) {
+                return res.status(400).json({
+                    message: "La contraseña es demasiado corta."
+                });
+            }
+
+            const hashedPassword = await bcrypt.hash(password, 10);          
             
             // 2. Creación mediante el repositorio (que usa el SP sp_create_user)
             const userId = await userRepo.create(username, hashedPassword, 'producer');
