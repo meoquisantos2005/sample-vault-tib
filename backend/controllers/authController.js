@@ -43,7 +43,7 @@ class AuthController
         {
             // 3. Manejo de error específico: Usuario Duplicado (Código ER_DUP_ENTRY en MySQL)
             if (error.code === 'ER_DUP_ENTRY') {
-                return res.status(409).json({ message: "El nombre de usuario ya existe." });
+                return res.status(409).json({ message: "El nombre de usuario ya está en uso." });
             }
 
             res.status(500).json({ 
