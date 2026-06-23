@@ -2,37 +2,54 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Register</title>
+    <title>SampleVault - Registro</title>
     <link rel="stylesheet" href="../css/w3.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/png" href="../img/favicon.png">
 </head>
 
-<body class="w3-dark-grey">
+<body class="w3-display-container" style="height:100vh;">
 
-<div class="w3-container w3-padding-32 w3-center">
+    <div class="w3-display-middle w3-mobile" style="width:400px;">
 
-    <h2 class="w3-text-yellow">Registro</h2>
+        <div class="w3-card-4 w3-padding-large w3-round-large w3-dark-grey">
 
-    <div class="w3-card w3-padding w3-white w3-round" style="max-width:400px;margin:auto">
+            <h2 class="w3-center w3-text-yellow"><b>CREAR CUENTA</b></h2>
 
-        <input id="usernameInput" class="w3-input w3-margin-bottom" placeholder="Usuario">
-        <input id="passwordInput" type="password" class="w3-input w3-margin-bottom" placeholder="Contraseña">
+            <p class="w3-center w3-text-white">
+                Registro de usuario SampleVault
+            </p>
 
-        <button id="registerBtn" class="w3-button w3-blue w3-block">
-            Registrarse
-        </button>
+            <!-- COMPATIBLE CON TU register.js -->
+            <label class="w3-text-white">Usuario</label>
+            <input id="usernameInput"
+                   class="w3-input w3-border w3-round w3-margin-bottom"
+                   type="text"
+                   placeholder="Usuario">
 
-        <p class="w3-small w3-margin-top">
-            ¿Ya tenés cuenta?
-            <a href="/login">Iniciar sesión</a>
-        </p>
+            <label class="w3-text-white">Contraseña</label>
+            <input id="passwordInput"
+                   class="w3-input w3-border w3-round w3-margin-bottom"
+                   type="password"
+                   placeholder="Contraseña">
 
-        <pre id="api-console"></pre>
+            <button id="registerBtn"
+                    class="w3-button w3-yellow w3-block w3-round-large">
+                REGISTRARSE
+            </button>
 
+            <p class="w3-small w3-center w3-text-white w3-margin-top">
+                ¿Ya tenés cuenta?
+                <a href="/html/login.html" class="w3-text-yellow">
+                    Iniciar sesión
+                </a>
+            </p>
+
+        </div>
     </div>
 
-</div>
-
-<script src="../js/tests/register.js"></script>
+    <!-- TU SCRIPT ORIGINAL -->
+    <script src="../js/tests/register.js"></script>
 
 </body>
 </html>

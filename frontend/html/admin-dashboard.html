@@ -2,35 +2,49 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Admin Dashboard - SampleVault</title>
+    <title>SampleVault - Admin Panel</title>
     <link rel="stylesheet" href="../css/w3.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" type="image/png" href="../img/favicon.png">
 </head>
 
 <body class="w3-dark-grey">
 
-<div class="w3-container w3-padding-32">
-
-    <h2 class="w3-text-yellow w3-center">
-        Panel de Administración
-    </h2>
-
-    <p class="w3-text-white w3-center">
-        Usuarios registrados en el sistema
-    </p>
-
-    <hr>
-
-    <!-- LISTA DE USUARIOS -->
-    <div class="w3-card w3-white w3-padding">
-
-        <h3>Usuarios</h3>
-
-        <ul id="userList" class="w3-ul"></ul>
-
-    </div>
-
+<!-- HEADER -->
+<div class="w3-bar w3-yellow w3-card">
+    <span class="w3-bar-item"><b>ADMIN DASHBOARD</b></span>
+    <button class="w3-bar-item w3-button w3-right btn-logout">Salir</button>
 </div>
 
+<!-- CONTENIDO -->
+<div class="w3-container w3-padding-32">
+
+    <h2 class="w3-text-white">Usuarios del Sistema</h2>
+    <p class="w3-text-light-grey">Gestión de cuentas registradas</p>
+
+    <div class="w3-responsive">
+
+        <table class="w3-table w3-striped w3-bordered w3-white">
+
+            <thead>
+                <tr class="w3-yellow">
+                    <th>ID</th>
+                    <th>Usuario</th>
+                    <th>Rol</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody id="usersTableBody">
+                <!-- JS lo llena -->
+            </tbody>
+
+        </table>
+
+    </div>
+</div>
+
+<!-- SCRIPTS -->
 <script src="../js/tests/admin.js"></script>
 
 </body>
