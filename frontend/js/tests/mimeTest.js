@@ -24,7 +24,15 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             const formData = new FormData();
-            formData.append("display_name", "Test manual");
+            const displayNameInput = document.getElementById("displayNameInput");
+            const displayName = displayNameInput.value.trim();
+
+            if (!displayName) {
+                showModal("Tenés que poner un nombre al sample");
+                return;
+            }
+
+            formData.append("display_name", displayName);
             formData.append("category", "Drums");
             formData.append("bpm", "120");
             formData.append("audioFile", file);

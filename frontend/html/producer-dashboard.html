@@ -30,6 +30,14 @@
 
             <h3 class="w3-text-green">Upload Sample</h3>
 
+            <!-- ✅ NUEVO: nombre del sample -->
+            <input
+                type="text"
+                id="displayNameInput"
+                class="w3-input w3-margin-top"
+                placeholder="Nombre del sample"
+            />
+
             <!-- INPUT (NO TOCAR) -->
             <input type="file" id="audioInput" class="w3-margin-top" />
 
@@ -50,12 +58,14 @@
                  style="min-height: 400px; overflow-y: auto;">
                 Waiting for uploads...
             </div>
+
             <hr>
-            <!-- ✅ LISTA DE SAMPLES -->
+
+            <!-- LISTA DE SAMPLES -->
             <h3 class="w3-text-white">Mis Samples</h3>
 
             <ul id="sampleList"
-                    class="w3-ul w3-white w3-card">
+                class="w3-ul w3-white w3-card">
             </ul>
 
         </div>
@@ -80,8 +90,9 @@
     </div>
 </div>
 
-<!-- SCRIPT (NO TOCAR) -->
+<!-- SCRIPTS -->
 <script src="../js/tests/mimeTest.js"></script>
 <script src="../js/tests/sampleList.js"></script>
+
 </body>
 </html>
