@@ -30,7 +30,16 @@
 
             <h3 class="w3-text-green">Upload Sample</h3>
 
-            <!-- IMPORTANTE: NO CAMBIADO -->
+            <!-- ✅ NUEVO: nombre del sample -->
+            <input
+                type="text"
+                id="displayNameInput"
+                class="w3-input w3-margin-top"
+                placeholder="Nombre del sample"
+            />
+
+            <!-- INPUT (NO TOCAR) -->
+
             <input type="file" id="audioInput" class="w3-margin-top" />
 
             <!-- IMPORTANTE: NO CAMBIADO -->
@@ -58,8 +67,25 @@
                 </tbody>
             </table>
 
+
         </div>
 
+            <div id="api-console"
+                 class="w3-code w3-black w3-border-yellow w3-border w3-padding"
+                 style="min-height: 400px; overflow-y: auto;">
+                Waiting for uploads...
+            </div>
+
+            <hr>
+
+            <!-- LISTA DE SAMPLES -->
+            <h3 class="w3-text-white">Mis Samples</h3>
+
+            <ul id="sampleList"
+                class="w3-ul w3-white w3-card">
+            </ul>
+
+        </div>
     </div>
 </div>
 
@@ -81,8 +107,9 @@
     </div>
 </div>
 
-<!-- SCRIPT ORIGINAL (OBLIGATORIO) -->
+
 <script src="../js/tests/mimeTest.js"></script>
+<script src="../js/tests/sampleList.js"></script>
 
 <!-- EXTRA (NO ROMPE MIME) -->
 <script src="../js/tests/sampleList.js"></script>
