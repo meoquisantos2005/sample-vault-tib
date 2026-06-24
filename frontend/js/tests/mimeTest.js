@@ -43,7 +43,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (!response.ok) {
                 showModal(data.message);
+                return;
             }
+
+        // ✅ SOLO SI TODO SALIÓ BIEN
+        location.reload();
 
         } catch (err) {
             logToConsole({
